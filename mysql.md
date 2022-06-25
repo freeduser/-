@@ -2,7 +2,7 @@
 
 ## 一条sql的执行流程
 
-![mysql执行一条sql语句的完整过程，sql语句在mysql中的执行过程_mysql](E:\个人信息\个人总结\images\sqlzhixingliucheng.png)
+![1](images/sqlzhixingliucheng.png)
 
 步骤：
 
@@ -163,7 +163,7 @@ innodb通过mvcc实现  **读已提交** 和 **可重复度**
 
      >undo log番外篇  目的是为了事务回滚用的，那么我们不需要保存太多数据，策略不秦楚，但是可以设置文件滚动使用
 
-   - ![img](E:\个人信息\个人总结\images\undolog.png)**mvcc开始工作：**
+   - ![img](images/undolog.png)**mvcc开始工作：**
 
    - 当事务中有查询语句时，生成一个**readView**,以下时它的主要组成部分
 
@@ -176,11 +176,11 @@ innodb通过mvcc实现  **读已提交** 和 **可重复度**
 
    - **读已提交**:**每次读取数据前都生成一个ReadView**
 
-   - ![img](E:\个人信息\个人总结\images\modb_20210928_95d04720-2024-11ec-9f93-00163e068ecd.png)
+   - ![](images/modb_20210928_95d04720-2024-11ec-9f93-00163e068ecd.png)
 
      下面是3个事务执行的过程，一行代表一个时间点
 
-     ![img](E:\个人信息\个人总结\images\tx_do.png)
+     ![img](images/tx_do.png)
 
      **「先分析一下5这个时间点select的执行过程」**
 
@@ -189,11 +189,12 @@ innodb通过mvcc实现  **读已提交** 和 **可重复度**
      3. 最新版本的name列为西施，该版本trx_id值为100，在mids列表中，不符合可见性要求，根据roll_pointer跳到下一个版本
      4. 下一个版本的name列王昭君，该版本的trx_id值为100，也在mids列表内，因此也不符合要求，继续跳到下一个版本
      5. 下一个版本的name列为貂蝉，该版本的trx_id值为10，小于min_trx_id，因此最后返回的name值为貂蝉
-     6. ![img](E:\个人信息\个人总结\images\modb_20210928_96480c10-2024-11ec-9f93-00163e068ecd.png)
+     
+     ![](images/modb_20210928_95d04720-2024-11ec-9f93-00163e068ecd.png)
 
 **Repeatable Read（可重复读），在第一次读取数据时生成一个ReadView**
 
-![img](E:\个人信息\个人总结\images\modb_20210928_96508ffc-2024-11ec-9f93-00163e068ecd.png)
+![img](images/modb_20210928_96508ffc-2024-11ec-9f93-00163e068ecd.png)
 
 ### 串行化如何实现
 
@@ -208,7 +209,7 @@ innodb通过mvcc实现  **读已提交** 和 **可重复度**
 
 ### mysql innodb文件体系
 
-![在这里插入图片描述](E:\个人信息\个人总结\images\mysql_file.png)
+![1](images/mysql_file.png)
 
 https://blog.csdn.net/Edwin_Hu/article/details/124698400
 
@@ -255,7 +256,7 @@ https://blog.csdn.net/Edwin_Hu/article/details/124698400
 
 **复制过程如下**：
 
-![img](E:\个人信息\个人总结\images\mysql_m_s.png)
+![img](images/mysql_m_s.png)
 
 Binary log：主数据库的二进制日志
 
